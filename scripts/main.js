@@ -44,7 +44,7 @@ function new_line(){
   p.setAttribute("class", "path")
   p.textContent = "# user";
   span1.textContent = " in";
-  span2.textContent = " ~/heber-leonard";
+  span2.textContent = " ~/udbhav-44";
   p.appendChild(span1);
   p.appendChild(span2);
   app.appendChild(p);
@@ -79,18 +79,18 @@ async function getInputValue(){
   }
   else if(value === "projects"){
     trueValue(value);
-    createText("<a href='https://github.com/heberleonard2' target='_blank'><i class='fab fa-github white'></i> github.com/heberleonard2</a>")
+    createText("<a href='https://github.com/udbhav-44' target='_blank'><i class='fab fa-github white'></i> github.com/udbhav-44</a>")
   }
   else if(value === "about me"){
     trueValue(value);
-    createText("Oi, meu nome é Héber ;)")
-    createText("Desenvolvedor atualmente focado em todo o ecossistema Javascript. Utilizando principalmente a stack <span class='blue'>Node, React e React Native </span>por permitir criar aplicações de forma descomplicada e produtiva.")
+    createText("Hi, My name is Udbhav Agarwal)")
+    createText("I am applying for the Position of Coordinator in the <span class='blue'>Brain and Cognitive Sciences Club, IITK </span>")
   }
   else if(value === "social -a"){
     trueValue(value);
-    createText("<a href='https://github.com/heberleonard2' target='_blank'><i class='fab fa-github white'></i> github.com/heberleonard2</a>")
-    createText("<a href='https://www.linkedin.com/in/heber-leonard/' target='_blank'><i class='fab fa-linkedin-in white'></i> linkedin.com/in/heber-leonard</a>")
-    createText("<a href='https://www.instagram.com/heber_leonard/' target='_blank'><i class='fab fa-instagram white'></i> instagram.com/heber_leonard</a>")
+    createText("<a href='https://github.com/udbhav-44' target='_blank'><i class='fab fa-github white'></i> github.com/heberleonard2</a>")
+    createText("<a href='https://www.linkedin.com/in/udbhav-agarwal-901a1419b/' target='_blank'><i class='fab fa-linkedin-in white'></i> linkedin.com/in/udbhav-agarwal-901a1419b/</a>")
+    createText("<a href='https://www.instagram.com/_udbhav_agarwal_/' target='_blank'><i class='fab fa-instagram white'></i> instagram.com/_udbhav_agarwal_</a>")
   }
   else if(value === "social"){
     trueValue(value);
