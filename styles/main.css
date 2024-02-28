@@ -2,7 +2,13 @@
   margin:0;
   padding:0;
   box-sizing: border-box;
+  line-height: 1.0; /* Decreased line spacing */
 }
+
+/* .ti-cursor{
+  display: none !important;
+} */
+
 ::-webkit-scrollbar-track
 {
     box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
@@ -35,8 +41,8 @@ a{
   color: rgb(238, 238, 238);
 }
 body{
-  background-color:#393A59;
-
+  background-color:#393a59;
+  /* background-color: #000000; */
   height: 100vh;
   font-family: 'Fira Code', monospace;
   display:flex;
@@ -126,14 +132,17 @@ p.code{
   margin-left:8px;
 }
 span.text{
-  margin-left:16px;
-  color:white;
+  /* margin-right: 0; */
+  color: white;
+  align-self: flex-start;
+  text-align: right;
+  margin-left: auto;
 }
 p.path{
   color:#F7FCA0;
 }
 p.path span{
-  color:#6A77D2;
+  color:#5bc1e3;
 }
 p.path span + span{
   color:#9CEAF3;

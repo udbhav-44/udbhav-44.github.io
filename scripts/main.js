@@ -1,11 +1,14 @@
 
 const app = document.querySelector("#app");
 const delay = ms => new Promise(res => setTimeout(res, ms));
-    
+
+
+
+
     
 app.addEventListener("keypress", async function(event){
   if(event.key === "Enter"){
-    await delay(150);
+    // await delay(150);
    getInputValue();
    
     removeInput();
@@ -23,40 +26,53 @@ app.addEventListener("click", function(event){
 async function open_terminal(){
   createText("Welcome");
   await delay(1000);
-  createText("Starting the server...");
+  createText("Starting the presentation...");
   await delay(1500);
-  createText("You can run several commands:");
-  await delay(500);
-  createCode("about me", "Who am i and what do i do.");
-  createCode("all", "See all commands.");
-  createCode("social -a", "All my social networks.");
-
-  await delay(500);
+  createText("You can run the following commands:");
+  await delay(1500);
+  createCode("about me :", "Who am i and what do i do.");
+  await delay(1500);
+  createCode("all :", "See all commands.");
+  await delay(1500);
+  createCode("social -a :", "All my social networks.");
+  await delay(1500);
   new_line();
 }
 
 
 function new_line(){
-  
+
   const p = document.createElement("p");
   const span1 = document.createElement("span");
   const span2 = document.createElement("span");
-  p.setAttribute("class", "path")
-  p.textContent = "# user";
+  p.setAttribute("class", "path");
+  p.textContent = "#user";
   span1.textContent = " in";
   span2.textContent = " ~/udbhav-44";
   p.appendChild(span1);
   p.appendChild(span2);
   app.appendChild(p);
-  const div = document.createElement("div");
-  div.setAttribute("class", "type")
-  const i = document.createElement("i");
-  i.setAttribute("class", "fas fa-angle-right icone")
-  const input = document.createElement("input");
-  div.appendChild(i);
-  div.appendChild(input);
-  app.appendChild(div);
-  input.focus();
+
+  new TypeIt(p, {
+    speed: 50,
+    loop: false,
+    waitUntilVisible: true,
+    afterComplete: function (instance) {
+      instance.destroy();
+      setTimeout(() => {
+        const i = document.createElement("i");
+        i.setAttribute("class", "fas fa-angle-right icone");
+        const div = document.createElement("div");
+        div.setAttribute("class", "type");
+        const input = document.createElement("input");
+        div.appendChild(i);
+        div.appendChild(input);
+        app.appendChild(div);
+        input.focus();
+      }, 100); // Delay in milliseconds
+    }
+  }).go();
+
   
 }
 
@@ -135,21 +151,37 @@ function falseValue(value){
   app.appendChild(div);
 }
 
-function createText(text, classname){
-  const p = document.createElement("p");
-  
-  p.innerHTML =
-  text
-  ;
+let id = 0
+
+function createText(text, classname) {
+  const p = document.createElement(`p`);
   app.appendChild(p);
+  p.id = `text${id}`;
+  new TypeIt(`#text${id}`, {
+    strings: text,
+    speed: 50,
+    waitUntilVisible: true,
+    afterComplete: function (instance) {
+      instance.destroy();
+    }
+  }).go();
+  id++;
 }
 
 function createCode(code, text){
   const p = document.createElement("p");
   p.setAttribute("class", "code");
-  p.innerHTML =
- `${code} <br/><span class='text'> ${text} </span>`;
   app.appendChild(p);
+  p.id = `code${id}`;
+  new TypeIt(`#code${id}`, {
+    strings: `${code} <span class='text'> ${text} </span>`,
+    speed: 50,
+    waitUntilVisible: true,
+    afterComplete: function (instance) {
+      instance.destroy();
+    }
+  }).go();
+  id++;
 }
 
 open_terminal();
